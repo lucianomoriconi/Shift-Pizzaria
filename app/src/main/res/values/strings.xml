@@ -5,4 +5,5 @@
     <string name="label_conectar">Connect</string>
     <string name="mensagem_campo_obrigatorio">* Campo Obrigatório</string>
     <string name="mensagem_usuario_senha_invalido">Usuário/senha inválido</string>
+    <string name="hello">Hello, %1$s</string>
 </resources>

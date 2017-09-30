@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#00796B</color>
     <color name="colorAccent">#8BC34A</color>
     <color name="corDaFontedoBotao">#FFFF</color>
-    <color name="corMensagemErro">#FXFX</color>
+    <color name="corMensagemErro">#FFFF</color>
 </resources>
