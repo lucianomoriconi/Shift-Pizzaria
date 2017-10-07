@@ -3,7 +3,10 @@ package br.com.fiap.pizzaria;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 
+import br.com.fiap.pizzaria.model.Pedido;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,10 +26,10 @@ public class PedidoActivity extends AppCompatActivity {
     CheckBox cbMussarela;
 
     @BindView(R.id.rgTamanhoPizza)
-    CheckBox rbTamanhoPizza;
+    RadioGroup rbTamanhoPizza;
 
     @BindView(R.id.spTipoPagamento)
-    CheckBox spTipoPagamento;
+    Spinner spTipoPagamento;
 
 
     @Override
@@ -40,6 +43,8 @@ public class PedidoActivity extends AppCompatActivity {
 
     @OnClick(R.id.btFecharPedido)
     public void fecharPedido(){
+        Pedido meuPedido = new Pedido();
+        meuPedido.setTipoPagamento(spTipoPagamento.getSelectedItem().toString());
 
     }
 }
