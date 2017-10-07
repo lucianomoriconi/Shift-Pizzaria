@@ -38,8 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         inputSenha.setErrorEnabled(senha.trim().equals(""));
 
         if (login.equals("android") && senha.equals("123")){
-            Intent telaMenu= new Intent(this,MenuActivity.class);
-            telaMenu.putExtra("KEY_LOGIN", login)
+            Intent telaMenu= new Intent(this,PedidoActivity.class);
+            telaMenu.putExtra("KEY_LOGIN", login);
             startActivity(telaMenu);
             finish();
         } else {

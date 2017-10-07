@@ -1,5 +1,6 @@
 package br.com.fiap.pizzaria;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Handler;
 import java.util.zip.CheckedInputStream;
 
 import br.com.fiap.pizzaria.model.Pedido;
@@ -58,14 +60,15 @@ public class PedidoActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btFecharPedido)
-    public void fecharPedido(){
+    public void fecharPedido() {
         loading.setVisibility(View.VISIBLE);
-        Pedido meuPedido = new Pedido();
+        final Pedido meuPedido = new Pedido();
         meuPedido.setTipoPagamento(spTipoPagamento.getSelectedItem().toString());
 
         List<String> sabores = new ArrayList<>();
 
         meuPedido.setSabor(sabores);
+
 
         switch (rgTamanhoPizza.getCheckedRadioButtonId()) {
             case R.id.rbTamanhoPequena:
@@ -77,23 +80,15 @@ public class PedidoActivity extends AppCompatActivity {
             case R.id.rbTamanhoGrande:
                 meuPedido.setTamanho(getString(R.string.label_grande));
                 break;
+
+            new android.os.Handler().postDelayed(new Runnable() {
+                public void run() {
+                    Intent finalizarPedido = new  Intent(SplashActivity.this, LoginActivity.class);
+                    finalizarPedido.putExtra(Constants.KEY_MEU_PEDIDO, meuPedido);
+                    startActivity(finalizarPedido);
+                    finish();
+                }
+            }, 3500);
         }
+    }
 }
-        /*if(cbAtum.isChecked())
-            sabores.add(cbAtum.getText().toString());
-
-        if(cbBacon.isChecked())
-            sabores.add(cbBacon.getText().toString());
-
-        if(cbCalabresa.isChecked())
-            sabores.add(cbCalabresa.getText().toString());
-
-        if(cbMussarela.isChecked())
-            sabores.add(cbMussarela.getText().toString());
-
-        for(CheckBox sabor : saboresPizza) {
-            if (sabor.isChecked())
-                sabores.add(sabor.getText().toString());
-        }
-
-
