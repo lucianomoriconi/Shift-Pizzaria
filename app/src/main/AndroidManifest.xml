@@ -9,15 +9,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".PedidoActivity" />
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".SplashActivity"
-        android:theme="@style/Fullscreen">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PedidoFinalizadoActivity"></activity>
     </application>
 
 </manifest>

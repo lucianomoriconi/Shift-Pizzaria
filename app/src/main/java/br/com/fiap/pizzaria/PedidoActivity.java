@@ -2,7 +2,9 @@ package br.com.fiap.pizzaria;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
@@ -39,6 +41,13 @@ public class PedidoActivity extends AppCompatActivity {
     @BindViews({R.id.cbAtum, R.id.cbBacon, R.id.cbBacon, R.id.cbCalabresa, R.id.cbMussarela})
     List<CheckBox> saboresPizza;
 
+    @BindView(R.id.loading)
+    View loading;
+
+    @BindView(R.id.ivLoading)
+    ImageView ivLoading;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +59,7 @@ public class PedidoActivity extends AppCompatActivity {
 
     @OnClick(R.id.btFecharPedido)
     public void fecharPedido(){
+        loading.setVisibility(View.VISIBLE);
         Pedido meuPedido = new Pedido();
         meuPedido.setTipoPagamento(spTipoPagamento.getSelectedItem().toString());
 
