@@ -6,5 +6,4 @@ package br.com.fiap.pizzaria;
 
 public class Constants {
     public static final String KEY_LOGIN = "KEY_LOGIN";
-    }
 }
