@@ -6,8 +6,13 @@ import android.widget.CheckBox;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.zip.CheckedInputStream;
+
 import br.com.fiap.pizzaria.model.Pedido;
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -31,6 +36,8 @@ public class PedidoActivity extends AppCompatActivity {
     @BindView(R.id.spTipoPagamento)
     Spinner spTipoPagamento;
 
+    @BindViews({R.id.cbAtum, R.id.cbBacon, R.id.cbBacon, R.id.cbCalabresa, R.id.cbMussarela})
+    List<CheckBox> saboresPizza;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,25 @@ public class PedidoActivity extends AppCompatActivity {
     public void fecharPedido(){
         Pedido meuPedido = new Pedido();
         meuPedido.setTipoPagamento(spTipoPagamento.getSelectedItem().toString());
+
+        List<String> sabores = new ArrayList<>();
+
+        if(cbAtum.isChecked())
+            sabores.add(cbAtum.getText().toString());
+
+        if(cbBacon.isChecked())
+            sabores.add(cbBacon.getText().toString());
+
+        if(cbCalabresa.isChecked())
+            sabores.add(cbCalabresa.getText().toString());
+
+        if(cbMussarela.isChecked())
+            sabores.add(cbMussarela.getText().toString());
+
+        for(CheckBox sabor : saboresPizza) {
+            if (sabor.isChecked())
+                sabores.add(sabor.getText().toString());
+        }
 
     }
 }
