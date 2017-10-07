@@ -55,7 +55,21 @@ public class PedidoActivity extends AppCompatActivity {
 
         List<String> sabores = new ArrayList<>();
 
-        if(cbAtum.isChecked())
+        meuPedido.setSabor(sabores);
+
+        switch (rgTamanhoPizza.getCheckedRadioButtonId()) {
+            case R.id.rbTamanhoPequena:
+                meuPedido.setTamanho(getString(R.string.label_pequena));
+                break;
+            case R.id.rbTamanhoMedia:
+                meuPedido.setTamanho(getString(R.string.label_media));
+                break;
+            case R.id.rbTamanhoGrande:
+                meuPedido.setTamanho(getString(R.string.label_grande));
+                break;
+        }
+}
+        /*if(cbAtum.isChecked())
             sabores.add(cbAtum.getText().toString());
 
         if(cbBacon.isChecked())
@@ -72,5 +86,4 @@ public class PedidoActivity extends AppCompatActivity {
                 sabores.add(sabor.getText().toString());
         }
 
-    }
-}
+

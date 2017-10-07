@@ -6,4 +6,6 @@
     <string name="label_sobre">Sobre</string>
     <string name="hello">Oie, %1$s</string>
     <string name="label_dinheiro">Money</string>
+    <string name="label_cartao">Card</string>
+    <string name="label_cheque">Check</string>
 </resources>
